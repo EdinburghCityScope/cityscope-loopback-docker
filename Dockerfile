@@ -3,16 +3,15 @@
 FROM node:latest
 
 # Create base directories
-RUN mkdir /data
-RUN mkdir /data/cityscope
-RUN mkdir /data/cityscope/loopback
-WORKDIR /data/cityscope/loopback
-ADD . /data/cityscope/loopback
-RUN chmod +x /data/cityscope/loopback/startup.sh
+RUN mkdir /srv/cityscope
+RUN mkdir /srv/cityscope/loopback
+WORKDIR /srv/cityscope/loopback
+ADD . /srv/cityscope/loopback
+RUN chmod +x /srv/cityscope/loopback/startup.sh
 
 # Installing Git
-RUN mkdir /data/git-tmp
-WORKDIR /data/git-tmp
+RUN mkdir /srv/git-tmp
+WORKDIR /srv/git-tmp
 
 RUN apt-get update
 RUN apt-get -y install sudo
@@ -25,4 +24,4 @@ RUN sudo npm install -g strongloop
 EXPOSE 3000
 
 #Add base entrypoint
-ENTRYPOINT ["/data/cityscope/loopback/startup.sh"]
+ENTRYPOINT ["/srv/cityscope/loopback/startup.sh"]
