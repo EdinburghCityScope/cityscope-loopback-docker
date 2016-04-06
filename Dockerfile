@@ -2,6 +2,7 @@
 # Installs StrongLoop and Git
 FROM node:latest
 
+# Create base directories
 RUN mkdir /data
 RUN mkdir /data/cityscope
 RUN mkdir /data/cityscope/loopback
@@ -17,17 +18,11 @@ RUN apt-get update
 RUN apt-get -y install sudo
 RUN apt-get -y install git
 
-#RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
-
-#USER docker
-
 #Installing Loopback
 RUN sudo npm install -g strongloop
 
-# Setup Git
-#RUN git config --global user.name "your username" && \
-#		git config --global user.email "your email"
-
+# Expose standard loopback port
 EXPOSE 3000
 
+#Add base entrypoint
 ENTRYPOINT ["/data/cityscope/loopback/startup.sh"]
