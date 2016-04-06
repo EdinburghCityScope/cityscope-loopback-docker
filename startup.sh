@@ -1,4 +1,9 @@
 #!/bin/bash
-git clone $1 $2
-cd $2 && npm install
-cd $2 && node .
+numArgs="$#"
+secondLastArg="${@:(-2):1}"
+lastArg="${!#}"
+echo "Cloning $secondLastArg into $lastArg"
+
+git clone $secondLastArg $lastArg
+cd $lastArg && npm install
+cd $lastArg && node .
