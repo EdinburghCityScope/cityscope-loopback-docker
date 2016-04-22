@@ -1,0 +1,23 @@
+{
+  "name": "GeoJSONGeometry",
+  "base": "Model",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": false,
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "coordinates": {
+      "type": "array",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
