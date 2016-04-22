@@ -1,0 +1,47 @@
+{
+  "name": "GeoJSONFeature",
+  "description": "A GeoJSON Feature for representing Geographic data structures",
+  "plural": "GeoJSONFeatures",
+  "mongodb": {
+    "collection": "Features"
+  },
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id" : false,
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "properties": {
+      "type": "object",
+      "required": true
+    },
+    "geometry": {
+      "type": "GeoJSONGeometry",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [{
+    "model": "GeoJSONFeature",
+    "property": "*",
+    "accessType": "*",
+    "principalType": "ROLE",
+    "principalId": "admin",
+    "permission": "ALLOW"
+  },
+  {
+    "model": "GeoJSONFeature",
+    "property": "*",
+    "accessType": "*",
+    "principalType": "ROLE",
+    "principalId": "$everyone",
+    "permission": "DENY"
+  }],
+  "methods": {}
+}

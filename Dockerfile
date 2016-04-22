@@ -6,19 +6,13 @@ FROM node:latest
 RUN mkdir /srv/cityscope
 RUN mkdir /srv/cityscope/loopback
 WORKDIR /srv/cityscope/loopback
-ADD . /srv/cityscope/loopback
+COPY . /srv/cityscope/loopback
 RUN chmod +x /srv/cityscope/loopback/startup.sh
 
-# Installing Git
-RUN mkdir /srv/git-tmp
-WORKDIR /srv/git-tmp
-
-RUN apt-get update
-RUN apt-get -y install sudo
-RUN apt-get -y install git
+ENV NODE_ENV=production
 
 #Installing Loopback
-RUN sudo npm install -g strongloop
+RUN cd /srv/cityscope/loopback && npm install
 
 # Expose standard loopback port
 EXPOSE 3000
