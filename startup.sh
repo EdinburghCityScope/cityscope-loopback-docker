@@ -35,4 +35,6 @@ if [ -z ${baseurl+x} ]; then
 fi
 echo $directory $credential $baseurl
 
+cp -r /srv/data/loopback $directory
+
 cd $directory && node . cityscope-credential=$credential loopback-custom-base-url=$baseurl
