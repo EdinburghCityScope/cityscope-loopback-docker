@@ -6,7 +6,7 @@ FROM node:latest
 RUN mkdir /srv/cityscope
 RUN mkdir /srv/cityscope/loopback
 WORKDIR /srv/cityscope/loopback
-ADD . /srv/cityscope/loopback
+COPY . /srv/cityscope/loopback
 RUN chmod +x /srv/cityscope/loopback/startup.sh
 
 ENV NODE_ENV=production

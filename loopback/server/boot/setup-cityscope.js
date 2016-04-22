@@ -25,7 +25,7 @@ module.exports = function(app) {
       Role.upsert({
         name: 'admin'
       }, function(err, role) {
-        if (err) return debug(err);
+        if (err) return console.log(err);
         console.log("Role created."+role);
 
         // Make Bob an admin
