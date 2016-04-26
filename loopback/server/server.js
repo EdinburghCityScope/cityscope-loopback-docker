@@ -1,10 +1,32 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
+var explorer = require('loopback-component-explorer');
+var path = require('path');
 
 var app = module.exports = loopback();
 
+
+//app.use(customBaseUrl+'/explorer', loopback.rest());
+
 app.start = function() {
   // start the web server
+
+  var customBaseUrl='';
+  process.argv.forEach(function(element){
+    var valueArray = element.split('=');
+    if (valueArray[0]='loopback-custom-base-url')
+    {
+      customBaseUrl=valueArray[1];
+    }
+  });
+  console.log('Setting explorer mount point to: '+customBaseUrl+'/explorer');
+
+  app.use(customBaseUrl+'/explorer', explorer.routes(app, {
+    basePath: customBaseUrl+'/api',
+    uiDirs: [
+      path.resolve(__dirname, 'public')
+    ]
+  }));
   return app.listen(function() {
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
