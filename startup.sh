@@ -33,8 +33,7 @@ if [ -z ${baseurl+x} ]; then
   echo "-baseurl parameter must be set"
   exit 1
 fi
-echo $directory $credential $baseurl
 
-cp -r /srv/data/loopback $directory
+cp -r /srv/cityscope/loopback $directory
 
 cd $directory && node . cityscope-credential=$credential loopback-custom-base-url=$baseurl
