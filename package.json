@@ -1,6 +1,6 @@
 {
   "name": "EdinburghCityScopeLoopbackAPI",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Edinburgh City Scope Loopback API build for docker",
   "main": "loopback/server/server.js",
   "scripts": {

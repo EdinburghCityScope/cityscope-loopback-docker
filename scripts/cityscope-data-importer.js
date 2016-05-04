@@ -1,4 +1,6 @@
-var app = require('../loopback/server/server.js')
+var app = require('../loopback/server/server')
+var http = require('https')
+var urllib = require('url')
 
 module.exports = {
   /**
@@ -18,8 +20,11 @@ module.exports = {
 
      data.forEach(function(element){
       model.upsert(element,function(err){
-        throw new Error(err);
+        if (err){
+          console.log(err);
+        }
       });
      });
   },
+
 };

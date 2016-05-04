@@ -1,5 +1,5 @@
 var should = require('chai').should();
-var expect = require('chai').expect();
+var expect = require('chai').expect;
 var assert = require('chai').assert;
 var loopback = require('loopback');
 var cityscopeDataImporter = require('../scripts/cityscope-data-importer');
@@ -30,6 +30,5 @@ describe('#insertLoopbackData', function(){
   it('throws validation error when data is invalid for model', function(){
     assert.throws(function(){insertLoopbackData('GeoJSONFeature',testInvalidJsonArray),ValidationError});
   });
-
 
 });
