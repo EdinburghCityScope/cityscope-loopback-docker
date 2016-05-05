@@ -1,4 +1,4 @@
-var app = require('../loopback/server/server')
+var app = require('./loopback/server/server')
 var http = require('https')
 var urllib = require('url')
 
