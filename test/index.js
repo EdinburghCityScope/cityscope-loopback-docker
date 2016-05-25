@@ -2,7 +2,7 @@ var should = require('chai').should();
 var expect = require('chai').expect;
 var assert = require('chai').assert;
 var loopback = require('loopback');
-var cityscopeDataImporter = require('../scripts/cityscope-data-importer');
+var cityscopeDataImporter = require('../cityscope-data-importer');
 var app = require('../loopback/server/server');
 
 var edinburghcityscopeUtils = require('edinburghcityscope-utils');
