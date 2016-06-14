@@ -34,6 +34,10 @@ if [ -z ${baseurl+x} ]; then
   exit 1
 fi
 
-cp -r /srv/cityscope/loopback $directory
+if [ -d "$directory" ]; then
+  cd $directory && node . loopback-custom-base-url=$baseurl
+else
+  cp -r /tmp/loopback $directory
 
-cd $directory && node . cityscope-credential=$credential loopback-custom-base-url=$baseurl
+  cd $directory && node . cityscope-credential=$credential loopback-custom-base-url=$baseurl
+fi
