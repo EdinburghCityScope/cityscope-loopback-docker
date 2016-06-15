@@ -31,15 +31,15 @@
     "model": "GeoJSONFeature",
     "property": "*",
     "accessType": "*",
-    "principalType": "Role",
-    "principalId": "admin",
+    "principalType": "ROLE",
+    "principalId": "$authenticated",
     "permission": "ALLOW"
   },
   {
     "model": "GeoJSONFeature",
     "property": "*",
     "accessType": "*",
-    "principalType": "Role",
+    "principalType": "ROLE",
     "principalId": "$everyone",
     "permission": "DENY"
   }],
