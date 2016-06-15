@@ -31,7 +31,7 @@
     "model": "GeoJSONFeature",
     "property": "*",
     "accessType": "*",
-    "principalType": "ROLE",
+    "principalType": "Role",
     "principalId": "admin",
     "permission": "ALLOW"
   },
@@ -39,7 +39,7 @@
     "model": "GeoJSONFeature",
     "property": "*",
     "accessType": "*",
-    "principalType": "ROLE",
+    "principalType": "Role",
     "principalId": "$everyone",
     "permission": "DENY"
   }],

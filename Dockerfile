@@ -15,15 +15,15 @@ USER jovyan
 # Download node depencencies
 RUN mkdir /tmp/loopback
 WORKDIR /tmp/loopback
-COPY . /tmp/loopback
+COPY ./package.json /tmp/loopback
 RUN cd /tmp/loopback && npm install
 
 # Move node dependencies to the user $HOME
-#RUN mv /tmp/loopback/node_modules /home/jovyan/.node-packages
-#RUN rm -rf /tmp/loopback
+RUN mv /tmp/loopback/node_modules /home/jovyan/.node-packages
+RUN rm -rf /tmp/loopback
 
 # Point NODE_PATH to the extracted dependencies
-#ENV NODE_PATH=/home/jovyan/.node-packages
+ENV NODE_PATH=/home/jovyan/.node-packages
 ENV NODE_ENV=production
 
 # Expose standard loopback port

@@ -37,7 +37,7 @@ fi
 if [ -d "$directory" ]; then
   cd $directory && node . loopback-custom-base-url=$baseurl
 else
-  cp -r /tmp/loopback $directory
+  cp -r /srv/cityscope/loopback $directory
 
   cd $directory && node . cityscope-credential=$credential loopback-custom-base-url=$baseurl
 fi
