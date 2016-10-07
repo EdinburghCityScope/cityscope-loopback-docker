@@ -28,7 +28,7 @@ module.exports = function(app) {
         if (err) return console.log(err);
         console.log("Role created."+role);
 
-        // Make Bob an admin
+        // Make User an admin
         role.principals.create({
           principalType: RoleMapping.USER,
           principalId: user.id
@@ -51,7 +51,6 @@ module.exports = function(app) {
             else {
                   console.log("ACL created.");
             }
-
 
           });
       });
