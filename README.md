@@ -34,7 +34,7 @@ The script will only be able to import datasets for which there is an appropriat
 
 Firstly pull the docker image:
 ```
-docker pull romandgood/cityscope-loopback
+docker pull cityscope/cityscope-loopback
 ```
 
 Then you can run it as per the following:
@@ -44,7 +44,7 @@ docker run -t --name=loopback-romandgood romandgood/cityscope-loopback -credenti
 
 For example:
 ```
-docker run -t romandgood/cityscope-loopback -credential change1t -baseurl /test -directory /data/loopback
+docker run -t cityscope/cityscope-loopback -credential change1t -baseurl /test -directory /data/loopback
 ```
 
 ##Importing a cityscope dataset
