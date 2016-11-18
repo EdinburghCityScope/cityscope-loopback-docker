@@ -22,27 +22,41 @@ if (dcatDataUrl=='')
 else {
  console.log('Data url is '+dcatDataUrl);
  console.log('Getting dcat data.');
- getDataFromURL(dcatDataUrl,function(callback){
-   console.log('Got dcat data');
-   console.log('Getting model and data information.');
-   getModelUrlFromDcatInfo(callback,function(callback){
-     var loopbackModel = callback.model;
-     console.log('Model is '+callback.model);
-     console.log('Data url is '+callback.datasetUrl);
+ getDataFromURL(dcatDataUrl,function(error,callback){
+   if (error)
+   {
+     throw error;
+   }
+   else {
+     console.log('Got dcat data');
+     console.log('Getting model and data information.');
+     getModelUrlFromDcatInfo(callback,function(callback){
+       var loopbackModel = callback.model;
+       console.log('Model is '+callback.model);
+       console.log('Data url is '+callback.datasetUrl);
 
-     console.log('Getting data.');
-     getDataFromURL(callback.datasetUrl,function(callback){
-       if (loopbackModel=='GeoJSONFeature')
-       {
-         console.log('Got data, converting to feature array.');
-         var json = featureCollectionToFeatureArray(callback);
-         console.log('Conversion complete, importing.');
-       }
+       console.log('Getting data.');
+       getDataFromURL(callback.datasetUrl,function(error,callback){
+         if (error)
+         {
+           throw error;
+         }
+         else {
+           if (loopbackModel=='GeoJSONFeature')
+           {
+             console.log('Got data, converting to feature array.');
+             var json = featureCollectionToFeatureArray(callback);
+             console.log('Conversion complete, importing.');
+           }
 
-       insertLoopbackData(loopbackModel,json);
-       console.log('Import finished!');
+           insertLoopbackData(loopbackModel,json);
+           console.log('Import finished!');
+         }
+
+       });
      });
-   });
+   }
+
  });
 
 }
