@@ -27,7 +27,7 @@
     "loopback-connector-mongodb": "^1.13.3",
     "loopback-connector-rest": "^1.10.2",
     "serve-favicon": "^2.0.1",
-    "edinburghcityscope-utils": "https://github.com/EdinburghCityScope/edinburghcityscope-utils.git#master"
+    "edinburghcityscope-utils": "https://github.com/EdinburghCityScope/edinburghcityscope-utils.git#1.2.1"
   },
   "devDependencies": {
     "jshint": "^2.5.6",
